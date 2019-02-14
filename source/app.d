@@ -1,5 +1,5 @@
 import std.stdio, imageformats;
-import exception;
+import exception, font;
 
 void main()
 {
@@ -7,6 +7,14 @@ void main()
 
     for (int i; i < Areas.bar1.w * 0.50; i++) {
         setPixel(img, Areas.bar1.x + i, Areas.bar1.y, Colors.red);
+    }
+
+    for (int i; i < Font.height; i++) {
+        for (int j; j < Font.width; j++) {
+            ubyte grayscale = Font.A_bits[(i * Font.height) + j];
+            RGB color = {grayscale, grayscale, grayscale};
+            setPixel(img, Areas.char1.x + j, Areas.char1.y + i, color);
+        }
     }
 
     write_image("out.png", img.w, img.h, img.pixels);
@@ -35,7 +43,8 @@ class Colors {
 
 class Areas {
     public static AREA
-        bar1 = {6, 29, 22, 1};
+        bar1 = {6, 29, 22, 1},
+        char1 = {6, 18, 7, 13};
 }
 
 void setPixel(IFImage img, int x, int y, RGB color) {
