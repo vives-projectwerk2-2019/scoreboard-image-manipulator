@@ -1,0 +1,12 @@
+{
+	"authors": [
+		"jonas"
+	],
+	"copyright": "Copyright © 2019, jonas",
+	"dependencies": {
+		"imageformats": "~>7.0.0"
+	},
+	"description": "A minimal D application.",
+	"license": "proprietary",
+	"name": "images"
+}
