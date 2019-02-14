@@ -5,14 +5,21 @@ void main()
 {
     IFImage img = read_image("image.png", 0);
 
-    for (int i; i < Areas.bar1.w * 0.50; i++) {
+    for (int i = 0; i < Areas.bar1.w * 0.50; i++) {
         setPixel(img, Areas.bar1.x + i, Areas.bar1.y, Colors.red);
     }
 
-    for (int i; i < Font.height; i++) {
-        for (int j; j < Font.width; j++) {
-            ubyte grayscale = Font.A_bits[(i * Font.height) + j];
-            RGB color = {grayscale, grayscale, grayscale};
+    bool[] pixmap = new bool[Font.width * Font.height + 13];
+    for(int i = 0; i < Font.font[0x41].length; i++) {
+        for(int j = 0; j < 8; j++) {
+            ubyte remainder = (Font.font[0x41][i] & (0x01 << 8 - j)) % (j + 1);
+            pixmap[(i*8)+7-j] = remainder == 0 ? true : false;
+        }
+    }
+
+    for (int i = 0; i < Font.height; i++) {
+        for (int j = 0; j < Font.width; j++) {
+            RGB color = !pixmap[(i * 8) + j] ? Colors.black : Colors.white;
             setPixel(img, Areas.char1.x + j, Areas.char1.y + i, color);
         }
     }
@@ -36,6 +43,7 @@ struct AREA {
 class Colors {
     public static RGB
         black = {0, 0, 0},
+        white = {255, 255, 255},
         red = {255, 0, 0},
         green = {0, 255, 0},
         blue = {0, 0, 255};
