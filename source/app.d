@@ -1,5 +1,5 @@
 import std.stdio, imageformats;
-import exception, font;
+import exception, font, area;
 
 void main()
 {
@@ -61,83 +61,6 @@ class Colors {
         green = {0, 255, 0},
         blue = {0, 0, 255},
         purple = {255, 0, 255};
-}
-
-struct AREA {
-    int x;
-    int y;
-    int w;
-    int h;
-}
-
-class Areas {
-    public static:
-        AREA[10] scoreboard = [
-            {8, 4, 8, 8},
-            {16, 4, 8, 8},
-            {24, 4, 8, 8},
-            {32, 4, 8, 8},
-            {40, 4, 8, 8},
-            {48, 4, 8, 8},
-            {56, 4, 8, 8},
-            {64, 4, 8, 8},
-            {72, 4, 8, 8},
-            {80, 4, 8, 8}
-        ];
-
-        AREA[4] player1_name = [
-            {6, 18, 8, 8},
-            {14, 18, 8, 8},
-            {22, 18, 8, 8},
-            {30, 18, 8, 8}
-        ];
-
-        AREA[3] player1_bars = [
-            {6, 29, 22, 1},
-            {6, 31, 22, 1},
-            {6, 33, 22, 1}
-        ];
-
-
-        AREA[4] player2_name = [
-            {6, 40, 8, 8},
-            {14, 40, 8, 8},
-            {22, 40, 8, 8},
-            {30, 40, 8, 8}
-        ];
-
-        AREA[3] player2_bars = [
-            {6, 51, 22, 1},
-            {6, 53, 22, 1},
-            {6, 55, 22, 1}
-        ];
-
-        AREA[4] player3_name = [
-            {49, 18, 8, 8},
-            {57, 18, 8, 8},
-            {65, 18, 8, 8},
-            {73, 18, 8, 8}
-        ];
-
-        AREA[3] player3_bars = [
-            {49, 29, 22, 1},
-            {49, 31, 22, 1},
-            {49, 33, 22, 1}
-        ];
-
-
-        AREA[4] player4_name = [
-            {49, 40, 8, 8},
-            {57, 40, 8, 8},
-            {65, 40, 8, 8},
-            {73, 40, 8, 8}
-        ];
-
-        AREA[3] player4_bars = [
-            {49, 51, 22, 1},
-            {49, 53, 22, 1},
-            {49, 55, 22, 1}
-        ];
 }
 
 void setPixel(IFImage img, int x, int y, RGB color) {
