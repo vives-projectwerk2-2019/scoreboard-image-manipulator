@@ -6,22 +6,22 @@ void main()
     IFImage img = read_image("image.png", 0);
 
     fillBar(img, Areas.bar1, Colors.red, 1.0);
-    drawChar(img, Areas.char1, 'F');
-    drawChar(img, Areas.char2, 'O');
-    drawChar(img, Areas.char3, 'O');
+    drawChar(img, Areas.char1, 'F', Colors.white);
+    drawChar(img, Areas.char2, 'O', Colors.white);
+    drawChar(img, Areas.char3, 'O', Colors.white);
     // drawChar(img, Areas.char4, 'v');
     // drawChar(img, Areas.char5, 'e');
 
-    drawChar(img, Areas.scoreboard1, 'S');
-    drawChar(img, Areas.scoreboard2, 'c');
-    drawChar(img, Areas.scoreboard3, 'o');
-    drawChar(img, Areas.scoreboard4, 'r');
-    drawChar(img, Areas.scoreboard5, 'e');
-    drawChar(img, Areas.scoreboard6, 'b');
-    drawChar(img, Areas.scoreboard7, 'o');
-    drawChar(img, Areas.scoreboard8, 'a');
-    drawChar(img, Areas.scoreboard9, 'r');
-    drawChar(img, Areas.scoreboard10, 'd');
+    drawChar(img, Areas.scoreboard1, 'S', Colors.blue);
+    drawChar(img, Areas.scoreboard2, 'c', Colors.blue);
+    drawChar(img, Areas.scoreboard3, 'o', Colors.blue);
+    drawChar(img, Areas.scoreboard4, 'r', Colors.blue);
+    drawChar(img, Areas.scoreboard5, 'e', Colors.blue);
+    drawChar(img, Areas.scoreboard6, 'b', Colors.blue);
+    drawChar(img, Areas.scoreboard7, 'o', Colors.blue);
+    drawChar(img, Areas.scoreboard8, 'a', Colors.blue);
+    drawChar(img, Areas.scoreboard9, 'r', Colors.blue);
+    drawChar(img, Areas.scoreboard10, 'd', Colors.blue);
 
     write_image("out.png", img.w, img.h, img.pixels);
 }
@@ -91,7 +91,7 @@ void fillBar(IFImage img, AREA area, RGB color, double percent) {
     }
 }
 
-void drawChar(IFImage img, AREA area, char character) {
+void drawChar(IFImage img, AREA area, char character, RGB color) {
 
     bool[] pixmap = new bool[Font.width * Font.height + 13];
     for(int i = 0; i < Font.font[character].length; i++) {
@@ -105,8 +105,9 @@ void drawChar(IFImage img, AREA area, char character) {
     }
     for (int i = 0; i < Font.height; i++) {
         for (int j = 0; j < Font.width; j++) {
-            RGB color = !pixmap[(i * 8) + j] ? Colors.black : Colors.white;
-            setPixel(img, area.x + j, area.y + i, color);
+            if (pixmap[(i * 8) + j]) {
+                setPixel(img, area.x + j, area.y + i, color);
+            }
         }
     }
 }
