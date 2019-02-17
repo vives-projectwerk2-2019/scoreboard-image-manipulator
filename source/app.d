@@ -1,5 +1,5 @@
 import std.stdio, imageformats;
-import exception, font, area;
+import exception, font, area, color;
 
 void main()
 {
@@ -45,22 +45,6 @@ void main()
 
 
     write_image("out.png", img.w, img.h, img.pixels);
-}
-
-struct RGB {
-    ubyte red;
-    ubyte green;
-    ubyte blue;
-}
-
-class Colors {
-    public static RGB
-        black = {0, 0, 0},
-        white = {255, 255, 255},
-        red = {255, 0, 0},
-        green = {0, 255, 0},
-        blue = {0, 0, 255},
-        purple = {255, 0, 255};
 }
 
 void setPixel(IFImage img, int x, int y, RGB color) {
