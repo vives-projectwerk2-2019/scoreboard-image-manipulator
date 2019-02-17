@@ -13,3 +13,4 @@ images-test-*
 *.o
 *.obj
 *.lst
+out.png
