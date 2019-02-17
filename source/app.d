@@ -5,23 +5,44 @@ void main()
 {
     IFImage img = read_image("image.png", 0);
 
-    fillBar(img, Areas.bar1, Colors.red, 1.0);
-    drawChar(img, Areas.char1, 'F', Colors.white);
-    drawChar(img, Areas.char2, 'O', Colors.white);
-    drawChar(img, Areas.char3, 'O', Colors.white);
-    // drawChar(img, Areas.char4, 'v');
-    // drawChar(img, Areas.char5, 'e');
+    // Draw scoreboard
+    foreach (i, letter; "Scoreboard") {
+        drawChar(img, Areas.scoreboard[i], letter, Colors.blue);
+    }
 
-    drawChar(img, Areas.scoreboard1, 'S', Colors.blue);
-    drawChar(img, Areas.scoreboard2, 'c', Colors.blue);
-    drawChar(img, Areas.scoreboard3, 'o', Colors.blue);
-    drawChar(img, Areas.scoreboard4, 'r', Colors.blue);
-    drawChar(img, Areas.scoreboard5, 'e', Colors.blue);
-    drawChar(img, Areas.scoreboard6, 'b', Colors.blue);
-    drawChar(img, Areas.scoreboard7, 'o', Colors.blue);
-    drawChar(img, Areas.scoreboard8, 'a', Colors.blue);
-    drawChar(img, Areas.scoreboard9, 'r', Colors.blue);
-    drawChar(img, Areas.scoreboard10, 'd', Colors.blue);
+    fillBar(img, Areas.player1_bars[0], Colors.red, 1.0);
+    fillBar(img, Areas.player1_bars[1], Colors.green, 0.3);
+    fillBar(img, Areas.player1_bars[2], Colors.purple, 0.7);
+
+    drawChar(img, Areas.player1_name[0], 'F', Colors.white);
+    drawChar(img, Areas.player1_name[1], 'O', Colors.white);
+    drawChar(img, Areas.player1_name[2], 'O', Colors.white);
+
+    fillBar(img, Areas.player2_bars[0], Colors.red, 1.0);
+    fillBar(img, Areas.player2_bars[1], Colors.green, 0.3);
+    fillBar(img, Areas.player2_bars[2], Colors.purple, 0.7);
+
+    drawChar(img, Areas.player2_name[0], 'B', Colors.white);
+    drawChar(img, Areas.player2_name[1], 'A', Colors.white);
+    drawChar(img, Areas.player2_name[2], 'R', Colors.white);
+
+    fillBar(img, Areas.player3_bars[0], Colors.red, 1.0);
+    fillBar(img, Areas.player3_bars[1], Colors.green, 0.3);
+    fillBar(img, Areas.player3_bars[2], Colors.purple, 0.7);
+
+    drawChar(img, Areas.player3_name[0], 'F', Colors.white);
+    drawChar(img, Areas.player3_name[1], 'B', Colors.white);
+    drawChar(img, Areas.player3_name[2], 'A', Colors.white);
+    drawChar(img, Areas.player3_name[3], 'R', Colors.white);
+
+    fillBar(img, Areas.player4_bars[0], Colors.red, 1.0);
+    fillBar(img, Areas.player4_bars[1], Colors.green, 0.3);
+    fillBar(img, Areas.player4_bars[2], Colors.purple, 0.7);
+
+    drawChar(img, Areas.player4_name[0], 'B', Colors.white);
+    drawChar(img, Areas.player4_name[1], 'A', Colors.white);
+    drawChar(img, Areas.player4_name[2], 'Z', Colors.white);
+
 
     write_image("out.png", img.w, img.h, img.pixels);
 }
@@ -32,6 +53,16 @@ struct RGB {
     ubyte blue;
 }
 
+class Colors {
+    public static RGB
+        black = {0, 0, 0},
+        white = {255, 255, 255},
+        red = {255, 0, 0},
+        green = {0, 255, 0},
+        blue = {0, 0, 255},
+        purple = {255, 0, 255};
+}
+
 struct AREA {
     int x;
     int y;
@@ -39,33 +70,74 @@ struct AREA {
     int h;
 }
 
-class Colors {
-    public static RGB
-        black = {0, 0, 0},
-        white = {255, 255, 255},
-        red = {255, 0, 0},
-        green = {0, 255, 0},
-        blue = {0, 0, 255};
-}
-
 class Areas {
-    public static AREA
-        bar1 = {6, 29, 22, 1},
-        char1 = {6, 18, 8, 8},
-        char2 = {14, 18, 8, 8},
-        char3 = {22, 18, 8, 8},
-        char4 = {30, 18, 8, 8},
-        char5 = {38, 18, 8, 8},
-        scoreboard1 = {8, 4, 8, 8},
-        scoreboard2 = {16, 4, 8, 8},
-        scoreboard3 = {24, 4, 8, 8},
-        scoreboard4 = {32, 4, 8, 8},
-        scoreboard5 = {40, 4, 8, 8},
-        scoreboard6 = {48, 4, 8, 8},
-        scoreboard7 = {56, 4, 8, 8},
-        scoreboard8 = {64, 4, 8, 8},
-        scoreboard9 = {72, 4, 8, 8},
-        scoreboard10 = {80, 4, 8, 8};
+    public static:
+        AREA[10] scoreboard = [
+            {8, 4, 8, 8},
+            {16, 4, 8, 8},
+            {24, 4, 8, 8},
+            {32, 4, 8, 8},
+            {40, 4, 8, 8},
+            {48, 4, 8, 8},
+            {56, 4, 8, 8},
+            {64, 4, 8, 8},
+            {72, 4, 8, 8},
+            {80, 4, 8, 8}
+        ];
+
+        AREA[4] player1_name = [
+            {6, 18, 8, 8},
+            {14, 18, 8, 8},
+            {22, 18, 8, 8},
+            {30, 18, 8, 8}
+        ];
+
+        AREA[3] player1_bars = [
+            {6, 29, 22, 1},
+            {6, 31, 22, 1},
+            {6, 33, 22, 1}
+        ];
+
+
+        AREA[4] player2_name = [
+            {6, 40, 8, 8},
+            {14, 40, 8, 8},
+            {22, 40, 8, 8},
+            {30, 40, 8, 8}
+        ];
+
+        AREA[3] player2_bars = [
+            {6, 51, 22, 1},
+            {6, 53, 22, 1},
+            {6, 55, 22, 1}
+        ];
+
+        AREA[4] player3_name = [
+            {49, 18, 8, 8},
+            {57, 18, 8, 8},
+            {65, 18, 8, 8},
+            {73, 18, 8, 8}
+        ];
+
+        AREA[3] player3_bars = [
+            {49, 29, 22, 1},
+            {49, 31, 22, 1},
+            {49, 33, 22, 1}
+        ];
+
+
+        AREA[4] player4_name = [
+            {49, 40, 8, 8},
+            {57, 40, 8, 8},
+            {65, 40, 8, 8},
+            {73, 40, 8, 8}
+        ];
+
+        AREA[3] player4_bars = [
+            {49, 51, 22, 1},
+            {49, 53, 22, 1},
+            {49, 55, 22, 1}
+        ];
 }
 
 void setPixel(IFImage img, int x, int y, RGB color) {
@@ -86,7 +158,7 @@ void setPixel(IFImage img, int x, int y, RGB color) {
 void fillBar(IFImage img, AREA area, RGB color, double percent) {
     for (int i = 0; i < area.w * percent; i++) {
         for (int j = 0; j < area.h; j++) {
-            setPixel(img, area.x + i, area.y + j, Colors.red);
+            setPixel(img, area.x + i, area.y + j, color);
         }
     }
 }
