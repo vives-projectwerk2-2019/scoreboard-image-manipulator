@@ -1,12 +1,11 @@
 {
 	"authors": [
-		"jonas"
+		"Jonas Meeuws"
 	],
-	"copyright": "Copyright © 2019, jonas",
 	"dependencies": {
 		"imageformats": "~>7.0.0"
 	},
-	"description": "A minimal D application.",
-	"license": "proprietary",
-	"name": "images"
+	"description": "Image manipulator for updating the scoreboard",
+	"license": "Apache 2.0",
+	"name": "scoreboard-manipulator"
 }
