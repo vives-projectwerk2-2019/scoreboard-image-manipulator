@@ -6,11 +6,22 @@ void main()
     IFImage img = read_image("image.png", 0);
 
     fillBar(img, Areas.bar1, Colors.red, 1.0);
-    drawChar(img, Areas.char1, 'R');
-    drawChar(img, Areas.char2, 'e');
-    drawChar(img, Areas.char3, 'a');
-    drawChar(img, Areas.char4, 'v');
-    drawChar(img, Areas.char5, 'e');
+    drawChar(img, Areas.char1, 'F');
+    drawChar(img, Areas.char2, 'O');
+    drawChar(img, Areas.char3, 'O');
+    // drawChar(img, Areas.char4, 'v');
+    // drawChar(img, Areas.char5, 'e');
+
+    drawChar(img, Areas.scoreboard1, 'S');
+    drawChar(img, Areas.scoreboard2, 'c');
+    drawChar(img, Areas.scoreboard3, 'o');
+    drawChar(img, Areas.scoreboard4, 'r');
+    drawChar(img, Areas.scoreboard5, 'e');
+    drawChar(img, Areas.scoreboard6, 'b');
+    drawChar(img, Areas.scoreboard7, 'o');
+    drawChar(img, Areas.scoreboard8, 'a');
+    drawChar(img, Areas.scoreboard9, 'r');
+    drawChar(img, Areas.scoreboard10, 'd');
 
     write_image("out.png", img.w, img.h, img.pixels);
 }
@@ -44,7 +55,17 @@ class Areas {
         char2 = {14, 18, 8, 8},
         char3 = {22, 18, 8, 8},
         char4 = {30, 18, 8, 8},
-        char5 = {38, 18, 8, 8};
+        char5 = {38, 18, 8, 8},
+        scoreboard1 = {8, 4, 8, 8},
+        scoreboard2 = {16, 4, 8, 8},
+        scoreboard3 = {24, 4, 8, 8},
+        scoreboard4 = {32, 4, 8, 8},
+        scoreboard5 = {40, 4, 8, 8},
+        scoreboard6 = {48, 4, 8, 8},
+        scoreboard7 = {56, 4, 8, 8},
+        scoreboard8 = {64, 4, 8, 8},
+        scoreboard9 = {72, 4, 8, 8},
+        scoreboard10 = {80, 4, 8, 8};
 }
 
 void setPixel(IFImage img, int x, int y, RGB color) {
