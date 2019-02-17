@@ -168,9 +168,6 @@ void drawChar(IFImage img, AREA area, char character, RGB color) {
     bool[] pixmap = new bool[Font.width * Font.height + 13];
     for(int i = 0; i < Font.font[character].length; i++) {
         for(int j = 0; j < 8; j++) {
-            // ubyte remainder = (Font.font[character][i] & (0x01 << 7 - j)) % (j + 1);
-            // writeln(Font.font[character][i], " & ", (0x01 << 7 - j), " = ", remainder);
-            // writeln(Font.font[character]);
             int mask = (0x01 << 7 - j);
             pixmap[(i*8)+7-j] = (Font.font[character][i] & mask) == mask ? true : false;
         }
