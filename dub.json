@@ -3,7 +3,8 @@
 		"Jonas Meeuws"
 	],
 	"dependencies": {
-		"imageformats": "~>7.0.0"
+		"imageformats": "~>7.0.0",
+		"vibe-d:data": "~>0.8.4"
 	},
 	"description": "Image manipulator for updating the scoreboard",
 	"license": "Apache 2.0",
