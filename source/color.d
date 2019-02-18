@@ -5,12 +5,18 @@ struct RGB {
 }
 
 class Colors {
-    public static RGB
-        black = {0, 0, 0},
-        white = {255, 255, 255},
-        red = {255, 0, 0},
-        green = {0, 255, 0},
-        blue = {0, 0, 255},
-        purple = {255, 0, 255};
-}
+    public static const:
+        RGB black = {0, 0, 0};
+        RGB white = {255, 255, 255};
 
+        RGB red = {255, 0, 0};
+        RGB green = {0, 255, 0};
+        RGB blue = {0, 0, 255};
+        RGB purple = {255, 0, 255};
+
+        RGB[3] bars = [
+            red,
+            green,
+            purple
+        ];
+}

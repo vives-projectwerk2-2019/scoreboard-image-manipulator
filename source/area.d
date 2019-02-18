@@ -6,7 +6,7 @@ struct Area {
 }
 
 class Areas {
-    public static:
+    public static const:
         Area[10] scoreboard = [
             {8, 4, 8, 8},
             {16, 4, 8, 8},

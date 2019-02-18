@@ -1,5 +1,5 @@
 class Font {
-    public static:
+    public static const:
         int width = 8;
         int height = 8;
 

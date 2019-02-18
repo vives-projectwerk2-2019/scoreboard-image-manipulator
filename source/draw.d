@@ -1,5 +1,5 @@
 import imageformats;
-import color, area, font, exception;
+import color, area, font, exception, config;
 
 void setPixel(IFImage img, int x, int y, RGB color) {
 
@@ -16,7 +16,7 @@ void setPixel(IFImage img, int x, int y, RGB color) {
     return;
 }
 
-void fillBar(IFImage img, Area area, RGB color, double percent) {
+void drawBar(IFImage img, Area area, RGB color, double percent) {
     for (int i = 0; i < area.w * percent; i++) {
         for (int j = 0; j < area.h; j++) {
             setPixel(img, area.x + i, area.y + j, color);
@@ -42,3 +42,52 @@ void drawChar(IFImage img, Area area, char character, RGB color) {
     }
 }
 
+void drawBoard(IFImage img, Config config) {
+
+    // Draw scoreboard
+    foreach (i, letter; "Scoreboard") {
+        drawChar(img, Areas.scoreboard[i], letter, Colors.blue);
+    }
+
+    // Player variables
+    const PlayerConfig[4] players = [
+        config.player1,
+        config.player2,
+        config.player3,
+        config.player4
+    ];
+
+    const Area[][4] areas_name = [
+        Areas.player1_name,
+        Areas.player2_name,
+        Areas.player3_name,
+        Areas.player4_name
+    ];
+
+    const Area[][4] areas_bar = [
+        Areas.player1_bars,
+        Areas.player2_bars,
+        Areas.player3_bars,
+        Areas.player4_bars
+    ];
+
+    // Draw players
+    foreach (cycle, player; players) {
+        // Name
+        char[4] name = ' '; // Fill with spaces
+        ulong length = 4;
+        if (player.shortName.length <= 4) {
+            length = player.shortName.length;
+        }
+        for(int i; i < length; i++) {
+            name[i] = player.shortName[i];
+        }
+        foreach (i, chr; name) {
+            drawChar(img, areas_name[cycle][i], chr, Colors.white);
+        }
+        // Bars
+        foreach (i, percent; config.player1.bars) {
+            drawBar(img, areas_bar[cycle][i], Colors.bars[i], percent);
+        }
+    }
+}
