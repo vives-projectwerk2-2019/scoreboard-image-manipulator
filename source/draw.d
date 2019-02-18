@@ -16,7 +16,7 @@ void setPixel(IFImage img, int x, int y, RGB color) {
     return;
 }
 
-void fillBar(IFImage img, AREA area, RGB color, double percent) {
+void fillBar(IFImage img, Area area, RGB color, double percent) {
     for (int i = 0; i < area.w * percent; i++) {
         for (int j = 0; j < area.h; j++) {
             setPixel(img, area.x + i, area.y + j, color);
@@ -24,7 +24,7 @@ void fillBar(IFImage img, AREA area, RGB color, double percent) {
     }
 }
 
-void drawChar(IFImage img, AREA area, char character, RGB color) {
+void drawChar(IFImage img, Area area, char character, RGB color) {
 
     bool[] pixmap = new bool[Font.width * Font.height + 13];
     for(int i = 0; i < Font.font[character].length; i++) {
