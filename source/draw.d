@@ -86,7 +86,7 @@ void drawBoard(IFImage img, Config config) {
             drawChar(img, areas_name[cycle][i], chr, Colors.white);
         }
         // Bars
-        foreach (i, percent; config.player1.bars) {
+        foreach (i, percent; player.bars) {
             drawBar(img, areas_bar[cycle][i], Colors.bars[i], percent);
         }
     }
