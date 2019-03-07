@@ -1,0 +1,20 @@
+{
+    "title": "Scoreboard",
+    "player1": {
+        "shortName": "ABC",
+        "bars": [0.7, 0.6, 0.4]
+    },
+    "player2": {
+        "shortName": "PLYR",
+        "bars": [0.1, 1.0, 0.2]
+    },
+    "player3": {
+        "shortName": "CPU1",
+        "bars": [0.2, 1.0, 0.5]
+    },
+    "player4": {
+        "shortName": "CPU2",
+        "bars": [0.8, 0.3, 0.6]
+    }
+}
+

@@ -4,6 +4,11 @@ import vibe.data.json;
 struct Config {
     string inFile;
     string outFile;
+    string listenAddress;
+    ushort listenPort;
+}
+
+struct ScoreboardConfig {
     string title;
     PlayerConfig player1;
     PlayerConfig player2;

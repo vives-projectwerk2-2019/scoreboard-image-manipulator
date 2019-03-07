@@ -1,0 +1,20 @@
+{
+    "title": "Scoreboard",
+    "player1": {
+        "shortName": "RVR",
+        "bars": [1.0, 0.3, 0.7]
+    },
+    "player2": {
+        "shortName": "BAR",
+        "bars": [0.4, 0.0, 0.7]
+    },
+    "player3": {
+        "shortName": "FBAR",
+        "bars": [0.8, 1.0, 0.4]
+    },
+    "player4": {
+        "shortName": "BAZ",
+        "bars": [0.6, 0.8, 0.2]
+    }
+}
+

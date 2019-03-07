@@ -42,7 +42,7 @@ void drawChar(IFImage img, Area area, char character, RGB color) {
     }
 }
 
-void drawBoard(IFImage img, Config config) {
+void drawBoard(IFImage img, ScoreboardConfig config) {
 
     // Draw scoreboard
     foreach (i, letter; "Scoreboard") {
