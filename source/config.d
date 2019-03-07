@@ -3,9 +3,10 @@ import vibe.data.json;
 
 struct Config {
     string inFile;
-    string outFile;
     string listenAddress;
     ushort listenPort;
+    string apiAddress;
+    string apiPort;
 }
 
 struct ScoreboardConfig {

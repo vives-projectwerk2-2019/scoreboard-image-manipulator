@@ -1,6 +1,7 @@
 {
     "inFile": "image.png",
-    "outFile": "out.png",
     "listenAddress": "0.0.0.0",
-    "listenPort": 8080
+    "listenPort": 8080,
+    "apiAddress": "localhost",
+    "apiPort": "3000"
 }

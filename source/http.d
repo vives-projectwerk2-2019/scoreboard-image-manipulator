@@ -6,20 +6,14 @@ import vibe.core.core : runApplication;
 import vibe.data.json;
 import vibe.http.server;
 
-// To display
 
-void sendImage(void[] data) {
-    auto client = HTTP();
-    client.addRequestHeader("Content-Type", "image/png");
-    post("http://localhost:3000", data, client);
-}
-
-// From game
 
 class Server {
 
     Config config;
     
+    // From game
+
     void handleRequest(scope HTTPServerRequest req, scope HTTPServerResponse res)
     {
         if (req.method == HTTPMethod.POST && req.path == "/") {
@@ -46,5 +40,13 @@ class Server {
     
         runApplication();
     }
+
+    // To display
     
+    void sendImage(void[] data) {
+        auto client = HTTP();
+        client.addRequestHeader("Content-Type", "image/png");
+        post("http://" ~ config.apiAddress ~ ":" ~ config.apiPort, data, client);
+    }
+        
 }
