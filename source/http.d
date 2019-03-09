@@ -1,16 +1,19 @@
-import draw, config, http;
+import draw, config;
 import imageformats;
+import std.conv;
 import std.file;
 import std.net.curl;
 import vibe.core.core : runApplication;
 import vibe.data.json;
 import vibe.http.server;
 
-
-
 class Server {
 
     Config config;
+
+    this(Config config) {
+        this.config = config;
+    }
     
     // From game
 
@@ -27,10 +30,8 @@ class Server {
         }
     }
     
-    void listen(Config config)
+    void listen()
     {
-        this.config = config;
-
         auto settings = new HTTPServerSettings;
         settings.port = config.listenPort;
         settings.bindAddresses = [config.listenAddress];
@@ -46,7 +47,7 @@ class Server {
     void sendImage(void[] data) {
         auto client = HTTP();
         client.addRequestHeader("Content-Type", "image/png");
-        post("http://" ~ config.apiAddress ~ ":" ~ config.apiPort, data, client);
+        post("http://" ~ config.apiAddress ~ ":" ~ to!string(config.apiPort), data, client);
     }
         
 }

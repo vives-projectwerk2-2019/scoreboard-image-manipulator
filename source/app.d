@@ -1,9 +1,8 @@
 import config, http;
-import std.stdio;
 
 void main()
 {
-    const config = readConfig("config.json");
-    auto server = new Server;
-    server.listen(config);
+    const config = readConfig("config.json", "SCOREBOARD_CONFIG");
+    auto server = new Server(config);
+    server.listen();
 }

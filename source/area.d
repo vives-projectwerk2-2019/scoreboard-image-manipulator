@@ -6,6 +6,7 @@ struct Area {
 }
 
 class Areas {
+    // Static areas for the template image
     public static const:
         Area[10] scoreboard = [
             {8, 4, 8, 8},
