@@ -10,7 +10,7 @@ class Colors {
         RGB white = {255, 255, 255};
 
         RGB red = {255, 0, 0};
-        RGB green = {0, 255, 0};
+        RGB green = {0, 192, 0};
         RGB blue = {0, 0, 255};
         RGB purple = {255, 0, 255};
 
