@@ -6,20 +6,14 @@ struct RGB {
 
 class Colors {
     public static const:
-        RGB black = {0, 0, 0};
-        RGB white = {255, 255, 255};
-
-        RGB red = {255, 0, 0};
-        RGB green = {0, 192, 0};
-        RGB blue = {0, 0, 255};
-        RGB purple = {255, 0, 255};
-
-        RGB scoreboard_bg = {131, 240, 220};
-        RGB players_bg = {65, 55, 220};
+        RGB scoreboard_bg = {128, 224, 224};
+        RGB players_bg = {32, 32, 96};
         RGB bars_bg = {255, 255, 255};
+        RGB scoreboard_chars = {0, 0, 255};
+        RGB players_chars = {255, 255, 255};
         RGB[3] bars = [
-            red,
-            green,
-            purple
+            {255, 0, 0},
+            {0, 192, 0},
+            {255, 0, 255}
         ];
 }

@@ -54,7 +54,7 @@ void drawBoard(IFImage img, ScoreboardConfig config) {
 
     // Draw scoreboard
     foreach (i, letter; "Scoreboard") {
-        drawChar(img, Areas.scoreboard[i], letter, Colors.blue);
+        drawChar(img, Areas.scoreboard[i], letter, Colors.scoreboard_chars);
     }
 
     // Player variables
@@ -91,7 +91,7 @@ void drawBoard(IFImage img, ScoreboardConfig config) {
             name[i] = player.shortName[i];
         }
         foreach (i, chr; name) {
-            drawChar(img, areas_name[cycle][i], chr, Colors.white);
+            drawChar(img, areas_name[cycle][i], chr, Colors.players_chars);
         }
         // Bars
         foreach (i, percent; player.bars) {

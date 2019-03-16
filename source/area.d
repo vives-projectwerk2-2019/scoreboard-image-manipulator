@@ -21,7 +21,7 @@ class Areas {
             {80, 4, 8, 8}
         ];
 
-        Area scoreboard_bg = {0, 0, 96, 14};
+        Area scoreboard_bg = {0, 0, 96, 15};
         Area players_bg = {0, 15, 96, 49};
 
         Area[4] player1_name = [
