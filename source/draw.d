@@ -95,7 +95,7 @@ void drawBoard(IFImage img, ScoreboardConfig config) {
         }
         // Bars
         foreach (i, percent; player.bars) {
-            drawBar(img, areas_bar[cycle][i], Colors.bars_bg, percent);
+            drawArea(img, areas_bar[cycle][i], Colors.bars_bg);
             drawBar(img, areas_bar[cycle][i], Colors.bars[i], percent);
         }
     }
