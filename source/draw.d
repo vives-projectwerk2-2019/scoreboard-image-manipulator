@@ -17,13 +17,17 @@ void setPixel(IFImage img, int x, int y, RGB color) {
 }
 
 void drawBar(IFImage img, Area area, RGB color, double percent) {
-    for (int i = 0; i < area.w * percent; i++) {
+    area.w = cast(int) (area.w * percent);
+    drawArea(img, area, color);
+}
+
+void drawArea(IFImage img, Area area, RGB color) {
+    for (int i = 0; i < area.w; i++) {
         for (int j = 0; j < area.h; j++) {
             setPixel(img, area.x + i, area.y + j, color);
         }
     }
 }
-
 void drawChar(IFImage img, Area area, char character, RGB color) {
 
     bool[] pixmap = new bool[Font.width * Font.height + 13];
@@ -43,6 +47,10 @@ void drawChar(IFImage img, Area area, char character, RGB color) {
 }
 
 void drawBoard(IFImage img, ScoreboardConfig config) {
+
+    // Draw backgrounds
+    drawArea(img, Areas.scoreboard_bg, Colors.scoreboard_bg);
+    drawArea(img, Areas.players_bg, Colors.players_bg);
 
     // Draw scoreboard
     foreach (i, letter; "Scoreboard") {
@@ -87,6 +95,7 @@ void drawBoard(IFImage img, ScoreboardConfig config) {
         }
         // Bars
         foreach (i, percent; player.bars) {
+            drawBar(img, areas_bar[cycle][i], Colors.bars_bg, percent);
             drawBar(img, areas_bar[cycle][i], Colors.bars[i], percent);
         }
     }

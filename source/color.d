@@ -14,6 +14,9 @@ class Colors {
         RGB blue = {0, 0, 255};
         RGB purple = {255, 0, 255};
 
+        RGB scoreboard_bg = {131, 240, 220};
+        RGB players_bg = {65, 55, 220};
+        RGB bars_bg = {255, 255, 255};
         RGB[3] bars = [
             red,
             green,
