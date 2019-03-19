@@ -53,7 +53,7 @@ void drawBoard(IFImage img, ScoreboardConfig config) {
     drawArea(img, Areas.players_bg, Colors.players_bg);
 
     // Draw scoreboard
-    foreach (i, letter; "Scoreboard") {
+    foreach (i, letter; config.title) {
         drawChar(img, Areas.scoreboard[i], letter, Colors.scoreboard_chars);
     }
 
