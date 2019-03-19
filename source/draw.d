@@ -54,6 +54,9 @@ void drawBoard(IFImage img, ScoreboardConfig config) {
 
     // Draw scoreboard
     foreach (i, letter; config.title) {
+        if (i == Areas.scoreboard.length) {
+            break;
+        }
         drawChar(img, Areas.scoreboard[i], letter, Colors.scoreboard_chars);
     }
 
@@ -96,7 +99,15 @@ void drawBoard(IFImage img, ScoreboardConfig config) {
         // Bars
         foreach (i, percent; player.bars) {
             drawArea(img, areas_bar[cycle][i], Colors.bars_bg);
-            drawBar(img, areas_bar[cycle][i], Colors.bars[i], percent);
+            double newPercent;
+            if (percent > 1.0) {
+                newPercent = 1.0;
+            } else if (percent < 0.0) {
+                newPercent = 0.0;
+            } else {
+                newPercent = percent;
+            }
+            drawBar(img, areas_bar[cycle][i], Colors.bars[i], newPercent);
         }
     }
 }
