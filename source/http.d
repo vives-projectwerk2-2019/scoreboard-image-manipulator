@@ -24,9 +24,16 @@ class Server {
             IFImage img = read_image(config.inFile, 0);
             drawBoard(img, req.json.deserializeJson!ScoreboardConfig);
             auto buffer = write_png_to_mem(img.w, img.h, img.pixels);
+            write_png("out.png", img.w, img.h, img.pixels);
             sendImage(buffer);
 
             res.writeBody("Success!\n", "text/plain");
+        } else if (req.method == HTTPMethod.GET && req.path == "/") {
+            string body = readText("index.html");
+            res.writeBody(body, "text/html");
+        } else if (req.method == HTTPMethod.GET && req.path == "/image") {
+            ubyte[] image = cast(ubyte[])(read("out.png"));
+            res.writeBody(image);
         }
     }
     

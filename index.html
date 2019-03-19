@@ -1,0 +1,46 @@
+<head>
+    <style>
+        img {
+            image-rendering: pixelated;
+        }
+    </style>
+    <script>
+        function postJson() {
+            fetch('/', {
+                headers: {'Content-Type': 'application/json'},
+                method: 'POST',
+                body: document.getElementById('text').value
+            });
+            document.getElementById('img').src='/image?cachebreaker=' + new Date().getTime();
+        }
+    </script>
+</head>
+<body>
+    <h1>Scoreboard</h1>
+    Json request:<br><br>
+    <textarea id="text" rows="20" cols="32">
+{
+  "title": "Scoreboard",
+  "player1": {
+    "shortName": "FOO",
+    "bars": [1,0.3,0.7]
+  },
+  "player2": {
+    "shortName": "BAR",
+    "bars": [0.4,0,0.7]
+  },
+  "player3": {
+    "shortName": "FBAR",
+    "bars": [0.8,1,0.4]
+  },
+  "player4": {
+    "shortName": "BAZ",
+    "bars": [0.6,0.8,0.2]
+  }
+}
+    </textarea>
+    <img id="img" src="/image" width="384" height="256"><br><br>
+    <button onclick="postJson();">
+        Send
+    </button><br><br>
+</body>
