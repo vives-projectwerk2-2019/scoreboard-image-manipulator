@@ -1,3 +1,5 @@
+module scoreboard.exception;
+
 class OutOfBoundsException : Exception
 {
     this(string msg, string file = __FILE__, size_t line = __LINE__) {

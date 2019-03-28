@@ -1,3 +1,5 @@
+module scoreboard.area;
+
 struct Area {
     int x;
     int y;

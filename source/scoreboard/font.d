@@ -1,3 +1,5 @@
+module scoreboard.font;
+
 class Font {
     public static const:
         int width = 8;

@@ -1,5 +1,11 @@
+module scoreboard.draw;
+
 import imageformats;
-import color, area, font, exception, config;
+import scoreboard.color;
+import scoreboard.area;
+import scoreboard.font;
+import scoreboard.exception;
+import scoreboard.config;
 
 void setPixel(IFImage img, int x, int y, RGB color) {
 

@@ -2,6 +2,6 @@
     "inFile": "image.png",
     "listenAddress": "0.0.0.0",
     "listenPort": 8080,
-    "apiAddress": "localhost",
-    "apiPort": 3000
+    "apiAddress": "172.16.0.70",
+    "apiPort": 80
 }

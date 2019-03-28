@@ -2,7 +2,7 @@ import std.file;
 import std.process;
 import vibe.data.json;
 
-struct Config {
+struct ServerConfig {
     string inFile;
     string listenAddress;
     ushort listenPort;
@@ -10,27 +10,14 @@ struct Config {
     ushort apiPort;
 }
 
-struct ScoreboardConfig {
-    string title;
-    PlayerConfig player1;
-    PlayerConfig player2;
-    PlayerConfig player3;
-    PlayerConfig player4;
-}
-
-struct PlayerConfig {
-    string shortName;
-    double[3] bars;
-}
-
-Config readConfig(string file, string envString) {
+ServerConfig readConfig(string file, string envString) {
     // Prioritize env var over config file
-    Config config;
+    ServerConfig config;
     auto env = environment.get(envString);
     if (env is null) {
-        config = readText(file).parseJsonString.deserializeJson!Config;
+        config = readText(file).parseJsonString.deserializeJson!ServerConfig;
     } else {
-        config = env.parseJsonString.deserializeJson!Config;
+        config = env.parseJsonString.deserializeJson!ServerConfig;
     }
     return config;
 }

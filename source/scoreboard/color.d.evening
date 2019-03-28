@@ -1,3 +1,5 @@
+module scoreboard.color;
+
 struct RGB {
     ubyte red;
     ubyte green;
