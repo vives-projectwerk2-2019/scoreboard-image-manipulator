@@ -17,22 +17,27 @@ Example:
 {
   "title": "Scoreboard",
   "player1": {
-    "shortName": "RVR",
-    "bars": [1,0.3,0.7]
+    "active": true,
+    "shortName": "FOO",
+    "bars": [1,0.3]
   },
   "player2": {
+    "active": true,
     "shortName": "BAR",
-    "bars": [0.4,0,0.7]
+    "bars": [0.4,0]
   },
   "player3": {
+    "active": true,
     "shortName": "FBAR",
-    "bars": [0.8,1,0.4]
+    "bars": [0.8,1]
   },
   "player4": {
+    "active": true,
     "shortName": "BAZ",
-    "bars": [0.6,0.8,0.2]
+    "bars": [0.6,0.8]
   }
 }
+
 ```
 
 ## Issues with ssl

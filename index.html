@@ -17,25 +17,30 @@
 </head>
 <body>
     <h1>Scoreboard</h1>
+    <a href="/upload">Image upload</a><br><br>
     Json request:<br><br>
     <textarea id="text" rows="20" cols="32">
 {
   "title": "Scoreboard",
   "player1": {
+    "active": true,
     "shortName": "FOO",
-    "bars": [1,0.3,0.7]
+    "bars": [1,0.3]
   },
   "player2": {
+    "active": true,
     "shortName": "BAR",
-    "bars": [0.4,0,0.7]
+    "bars": [0.4,0]
   },
   "player3": {
+    "active": true,
     "shortName": "FBAR",
-    "bars": [0.8,1,0.4]
+    "bars": [0.8,1]
   },
   "player4": {
+    "active": true,
     "shortName": "BAZ",
-    "bars": [0.6,0.8,0.2]
+    "bars": [0.6,0.8]
   }
 }</textarea>
     <img id="img" src="/image" width="384" height="256"><br><br>

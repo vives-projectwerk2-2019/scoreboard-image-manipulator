@@ -61,7 +61,7 @@ void drawBoard(IFImage img, ScoreboardConfig config) {
     // Draw scoreboard
     foreach (i, letter; config.title) {
         if (i == Areas.scoreboard.length) {
-            break;
+            continue;
         }
         drawChar(img, Areas.scoreboard[i], letter, Colors.scoreboard_chars);
     }
@@ -90,30 +90,32 @@ void drawBoard(IFImage img, ScoreboardConfig config) {
 
     // Draw players
     foreach (cycle, player; players) {
-        // Name
-        char[4] name = ' '; // Fill with spaces
-        ulong length = 4;
-        if (player.shortName.length <= 4) {
-            length = player.shortName.length;
-        }
-        for(int i; i < length; i++) {
-            name[i] = player.shortName[i];
-        }
-        foreach (i, chr; name) {
-            drawChar(img, areas_name[cycle][i], chr, Colors.players_chars);
-        }
-        // Bars
-        foreach (i, percent; player.bars) {
-            drawArea(img, areas_bar[cycle][i], Colors.bars_bg);
-            double newPercent;
-            if (percent > 1.0) {
-                newPercent = 1.0;
-            } else if (percent < 0.0) {
-                newPercent = 0.0;
-            } else {
-                newPercent = percent;
+        if (player.active) {
+            // Name
+            char[4] name = ' '; // Fill with spaces
+            ulong length = 4;
+            if (player.shortName.length <= 4) {
+                length = player.shortName.length;
             }
-            drawBar(img, areas_bar[cycle][i], Colors.bars[i], newPercent);
+            for(int i; i < length; i++) {
+                name[i] = player.shortName[i];
+            }
+            foreach (i, chr; name) {
+                drawChar(img, areas_name[cycle][i], chr, Colors.players_chars);
+            }
+            // Bars
+            foreach (i, percent; player.bars) {
+                drawArea(img, areas_bar[cycle][i], Colors.bars_bg);
+                double newPercent;
+                if (percent > 1.0) {
+                    newPercent = 1.0;
+                } else if (percent < 0.0) {
+                    newPercent = 0.0;
+                } else {
+                    newPercent = percent;
+                }
+                drawBar(img, areas_bar[cycle][i], Colors.bars[i], newPercent);
+            }
         }
     }
 }

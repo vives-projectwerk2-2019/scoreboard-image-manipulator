@@ -9,6 +9,7 @@ struct ScoreboardConfig {
 }
 
 struct PlayerConfig {
+    bool active;
     string shortName;
-    double[3] bars;
+    double[2] bars;
 }

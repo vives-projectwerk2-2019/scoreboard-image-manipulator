@@ -1,7 +1,26 @@
+<head>
+    <style>
+        img {
+            image-rendering: pixelated;
+        }
+    </style>
+    <script>
+        function postJson() {
+            fetch('/', {
+                headers: {'Content-Type': 'application/json'},
+                method: 'POST',
+                body: document.getElementById('text').value
+            });
+            
+        }
+    </script>
+</head>
 <body>
     <h1>Scoreboard</h1>
+    <a href="/">Scoreboard generator</a><br><br>
     <form id="uploadbanner" enctype="multipart/form-data" method="post" action="/upload">
         <input id="fileupload" name="image" type="file" />
-        <input type="submit" value="submit" id="submit" />
+        <input type="submit" value="submit" id="submit" onclick="document.getElementById('img').src='/image?cachebreaker=' + new Date().getTime();" />
     </form>
+    <img id="img" src="/image" width="384" height="256"><br><br>
 </body>
