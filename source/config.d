@@ -4,10 +4,10 @@ import vibe.data.json;
 
 struct ServerConfig {
     string inFile;
-    string listenAddress;
-    ushort listenPort;
-    string apiAddress;
-    ushort apiPort;
+    string mqttBroker;
+    ushort mqttPort;
+    string subscribeTopic;
+    string publishTopic;
 }
 
 ServerConfig readConfig(string file, string envString) {

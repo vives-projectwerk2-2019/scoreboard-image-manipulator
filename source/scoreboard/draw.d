@@ -4,13 +4,12 @@ import imageformats;
 import scoreboard.color;
 import scoreboard.area;
 import scoreboard.font;
-import scoreboard.exception;
 import scoreboard.config;
 
-void setPixel(IFImage img, int x, int y, RGB color) {
+@safe void setPixel(IFImage img, int x, int y, RGB color) {
 
     if (x >= img.w || y >= img.h) {
-        throw new OutOfBoundsException("Coordinates are out of bounds.");
+        throw new Exception("Coordinates are out of bounds.");
     }
 
     int location = ((y * img.w) + x) * 4;
@@ -22,19 +21,19 @@ void setPixel(IFImage img, int x, int y, RGB color) {
     return;
 }
 
-void drawBar(IFImage img, Area area, RGB color, double percent) {
+@safe void drawBar(IFImage img, Area area, RGB color, double percent) {
     area.w = cast(int) (area.w * percent);
     drawArea(img, area, color);
 }
 
-void drawArea(IFImage img, Area area, RGB color) {
+@safe void drawArea(IFImage img, Area area, RGB color) {
     for (int i = 0; i < area.w; i++) {
         for (int j = 0; j < area.h; j++) {
             setPixel(img, area.x + i, area.y + j, color);
         }
     }
 }
-void drawChar(IFImage img, Area area, char character, RGB color) {
+@safe void drawChar(IFImage img, Area area, char character, RGB color) {
 
     bool[] pixmap = new bool[Font.width * Font.height + 13];
     for(int i = 0; i < Font.font[character].length; i++) {
@@ -52,7 +51,7 @@ void drawChar(IFImage img, Area area, char character, RGB color) {
     }
 }
 
-void drawBoard(IFImage img, ScoreboardConfig config) {
+@safe void drawBoard(IFImage img, ScoreboardConfig config) {
 
     // Draw backgrounds
     drawArea(img, Areas.scoreboard_bg, Colors.scoreboard_bg);

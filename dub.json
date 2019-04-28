@@ -5,7 +5,8 @@
 	"dependencies": {
 		"imageformats": "~>7.0.0",
 		"vibe-d:data": "~>0.8.4",
-		"vibe-d:http": "~>0.8.4"
+		"vibe-d:http": "~>0.8.4",
+		"vibe-mqtt": "~>0.2.0"
 	},
 	"description": "Image manipulator for updating the scoreboard",
 	"license": "Apache 2.0",
