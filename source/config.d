@@ -1,8 +1,9 @@
-import std.file;
-import std.process;
+import std.file : readText;
+import std.process : environment;
 import vibe.data.json;
 
-struct ServerConfig {
+struct ServerConfig
+{
     string inFile;
     string mqttBroker;
     ushort mqttPort;
@@ -10,13 +11,17 @@ struct ServerConfig {
     string publishTopic;
 }
 
-ServerConfig readConfig(string file, string envString) {
+ServerConfig readConfig(string file, string envString)
+{
     // Prioritize env var over config file
     ServerConfig config;
     auto env = environment.get(envString);
-    if (env is null) {
+    if (env is null)
+    {
         config = readText(file).parseJsonString.deserializeJson!ServerConfig;
-    } else {
+    }
+    else
+    {
         config = env.parseJsonString.deserializeJson!ServerConfig;
     }
     return config;

@@ -1,6 +1,7 @@
 module scoreboard.config;
 
-struct ScoreboardConfig {
+struct ScoreboardConfig
+{
     string title;
     PlayerConfig player1;
     PlayerConfig player2;
@@ -8,7 +9,8 @@ struct ScoreboardConfig {
     PlayerConfig player4;
 }
 
-struct PlayerConfig {
+struct PlayerConfig
+{
     bool active;
     string shortName;
     double[2] bars;
