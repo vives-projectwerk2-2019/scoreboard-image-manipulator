@@ -29,7 +29,7 @@ class Server
     {
         auto settings = Settings();
         settings.host = config.mqttBroker;
-        //settings.port = config.mqttPort;
+        settings.port = config.mqttPort;
         settings.clientId = "Scoreboard generator";
         settings.reconnect = 1;
         settings.onPublish = (scope MqttClient ctx, in Publish packet) {
